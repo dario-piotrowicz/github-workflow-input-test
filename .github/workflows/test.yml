@@ -1,0 +1,19 @@
+name: Test confirm input
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        type: boolean
+        required: true
+jobs:
+  log_confirm:
+    name: Test input
+    if: ${{ inputs.confirm == true }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: == true
+        if: ${{ inputs.confirm == true }}
+        run: echo "input.confirm == true"
+      - name: == 'true'
+        if: ${{ inputs.confirm == 'true' }}
+        run: echo "input.confirm == 'true'"
